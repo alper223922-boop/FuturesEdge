@@ -5,6 +5,7 @@ public class MarketTicker {
     public double lastPrice;
     public double priceChangePercent;
     public double volume;       // quote volume in USDT
+    public double rsi = 0.0;    // <--- İŞTE EKSİK OLAN VE HATAYA SEBEP OLAN SATIR BU
 
     public MarketTicker(String symbol, double lastPrice,
                         double priceChangePercent, double volume) {
