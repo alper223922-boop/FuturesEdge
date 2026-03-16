@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Market Overview"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_refresh_market"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_icon_button"
+            android:src="@drawable/ic_refresh"
+            app:tint="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- Filter Tabs -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="12dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/market_filter_group"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_all"
+                style="@style/TimeframeButtonSelected"
+                android:layout_width="72dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:text="ALL"
+                android:textColor="@color/accent_gold"
+                android:backgroundTint="@color/bg_card" />
+
+            <Button
+                android:id="@+id/btn_gainers"
+                style="@style/TimeframeButton"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:text="GAINERS"
+                android:textColor="@color/text_secondary"
+                android:backgroundTint="@color/bg_card" />
+
+            <Button
+                android:id="@+id/btn_losers"
+                style="@style/TimeframeButton"
+                android:layout_width="80dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:text="LOSERS"
+                android:textColor="@color/text_secondary"
+                android:backgroundTint="@color/bg_card" />
+
+            <Button
+                android:id="@+id/btn_volume"
+                style="@style/TimeframeButton"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="VOLUME"
+                android:textColor="@color/text_secondary"
+                android:backgroundTint="@color/bg_card" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Market RecyclerView -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_market"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_market"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,0 +1,4 @@
+-keep class com.mascanpro.model.** { *; }
+-keep class com.mascanpro.network.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**

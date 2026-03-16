@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_grid"
+                app:tint="@color/accent_gold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MA Scanner Pro"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:paddingStart="10dp" />
+
+            <ImageButton
+                android:id="@+id/btn_notification"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_button"
+                android:src="@drawable/ic_bell"
+                app:tint="@color/text_secondary" />
+
+            <ImageButton
+                android:id="@+id/btn_info"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_icon_button"
+                android:src="@drawable/ic_person"
+                app:tint="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- MA Period Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="8dp">
+
+            <!-- Fast MA -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fast_ma_period"
+                    android:textColor="@color/text_label"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:paddingBottom="6dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_field">
+
+                    <EditText
+                        android:id="@+id/et_fast_period"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="16dp"
+                        android:text="50"
+                        android:textColor="@color/text_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:inputType="number"
+                        android:background="@null"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:paddingEnd="14dp"
+                        android:text="P"
+                        android:textColor="@color/text_label"
+                        android:textSize="14sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Slow MA -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slow_ma_period"
+                    android:textColor="@color/text_label"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:paddingBottom="6dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_field">
+
+                    <EditText
+                        android:id="@+id/et_slow_period"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="16dp"
+                        android:text="200"
+                        android:textColor="@color/text_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:inputType="number"
+                        android:background="@null"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:paddingEnd="14dp"
+                        android:text="P"
+                        android:textColor="@color/text_label"
+                        android:textSize="14sp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- MA TYPE Selector -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ma_type"
+                android:textColor="@color/text_label"
+                android:textSize="11sp"
+                android:letterSpacing="0.1"
+                android:paddingBottom="8dp" />
+
+            <LinearLayout
+                android:id="@+id/ma_type_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_ema"
+                    style="@style/MaTypeButtonSelected"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="EMA"
+                    android:textColor="@color/accent_gold"
+                    android:backgroundTint="@color/bg_card" />
+
+                <Button
+                    android:id="@+id/btn_sma"
+                    style="@style/MaTypeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="SMA"
+                    android:textColor="@color/text_secondary"
+                    android:backgroundTint="@color/bg_card" />
+
+                <Button
+                    android:id="@+id/btn_wma"
+                    style="@style/MaTypeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="WMA"
+                    android:textColor="@color/text_secondary"
+                    android:backgroundTint="@color/bg_card" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- TIMEFRAME Selector -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timeframe"
+                android:textColor="@color/text_label"
+                android:textSize="11sp"
+                android:letterSpacing="0.1"
+                android:paddingBottom="8dp" />
+
+            <LinearLayout
+                android:id="@+id/timeframe_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_15m"
+                    style="@style/TimeframeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="15M"
+                    android:backgroundTint="@color/bg_card" />
+
+                <Button
+                    android:id="@+id/btn_1h"
+                    style="@style/TimeframeButtonSelected"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="1H"
+                    android:textColor="@color/accent_gold"
+                    android:backgroundTint="@color/bg_card" />
+
+                <Button
+                    android:id="@+id/btn_4h"
+                    style="@style/TimeframeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="4H"
+                    android:backgroundTint="@color/bg_card" />
+
+                <Button
+                    android:id="@+id/btn_1d"
+                    style="@style/TimeframeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="1D"
+                    android:backgroundTint="@color/bg_card" />
+
+                <Button
+                    android:id="@+id/btn_1w"
+                    style="@style/TimeframeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="1W"
+                    android:backgroundTint="@color/bg_card" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Auto-Scan & Alerts Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card"
+            android:padding="4dp">
+
+            <!-- Auto-Scan Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp">
+
+                <FrameLayout
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_icon_circle">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_refresh"
+                        app:tint="@color/accent_gold" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/auto_scan"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/live_background_sync"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_auto_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border_color"
+                android:layout_marginHorizontal="12dp" />
+
+            <!-- Alerts Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp">
+
+                <FrameLayout
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_icon_circle">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_bell"
+                        app:tint="@color/accent_gold" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/alerts"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:paddingStart="12dp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_alerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Scan Frequency -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/scan_frequency"
+                    android:textColor="@color/text_label"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1" />
+                <TextView
+                    android:id="@+id/tv_scan_freq_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5m interval"
+                    android:textColor="@color/accent_gold"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field">
+                <EditText
+                    android:id="@+id/et_scan_frequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
+                    android:hint="1h"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_label"
+                    android:textSize="16sp"
+                    android:inputType="text"
+                    android:background="@null"
+                    android:gravity="center_vertical" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Min Volume -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/min_volume"
+                    android:textColor="@color/text_label"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1" />
+                <TextView
+                    android:id="@+id/tv_volume_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&gt; 10M USDT"
+                    android:textColor="@color/accent_gold"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seekbar_volume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:max="100"
+                android:progress="10"
+                android:progressTint="@color/accent_gold"
+                android:thumbTint="@color/accent_gold" />
+        </LinearLayout>
+
+        <!-- Live Matches -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv_matches_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LIVE MATCHES (0)"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <TextView
+                android:id="@+id/tv_last_updated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last updated: --:--:--"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_signal_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="12dp"
+            android:text="0 signal found"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Results RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_signals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="16dp" />
+
+        <!-- Start Scan Button -->
+        <Button
+            android:id="@+id/btn_start_scan"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:text="▶  START SCAN"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/bg_primary"
+            android:backgroundTint="@color/accent_gold"
+            android:stateListAnimator="@null"
+            app:cornerRadius="28dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

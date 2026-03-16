@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configuration"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Binance API Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BINANCE API"
+            android:textColor="@color/text_label"
+            android:textSize="11sp"
+            android:letterSpacing="0.1"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="API Key"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_api_key"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter API Key (optional)"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_label"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input_field"
+                android:paddingHorizontal="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="API Secret"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_api_secret"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter API Secret (optional)"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_label"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input_field"
+                android:paddingHorizontal="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Public data (klines, ticker) does not require API key."
+                android:textColor="@color/text_label"
+                android:textSize="11sp"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+
+        <!-- Pairs Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COIN PAIRS"
+            android:textColor="@color/text_label"
+            android:textSize="11sp"
+            android:letterSpacing="0.1"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Auto-load top 100 USDT pairs"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_auto_pairs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_pairs_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 pairs loaded"
+                android:textColor="@color/accent_gold"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Display Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DISPLAY"
+            android:textColor="@color/text_label"
+            android:textSize="11sp"
+            android:letterSpacing="0.1"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Show volume change"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_show_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border_color"
+                android:layout_marginVertical="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Show candles ago"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_show_candles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_save_config"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="SAVE CONFIGURATION"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/bg_primary"
+            android:backgroundTint="@color/accent_gold"
+            android:stateListAnimator="@null"
+            app:cornerRadius="12dp" />
+
+        <!-- Version -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MA Scanner Pro v2.0"
+            android:textColor="@color/text_label"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:paddingTop="20dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

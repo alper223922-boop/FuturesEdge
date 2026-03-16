@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_market"
+        android:icon="@drawable/ic_market"
+        android:title="@string/nav_market" />
+    <item
+        android:id="@+id/nav_scanner"
+        android:icon="@drawable/ic_scanner"
+        android:title="@string/nav_scanner" />
+    <item
+        android:id="@+id/nav_fullscan"
+        android:icon="@drawable/ic_fullscan"
+        android:title="Full Scan" />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/nav_history" />
+    <item
+        android:id="@+id/nav_config"
+        android:icon="@drawable/ic_config"
+        android:title="@string/nav_config" />
+</menu>

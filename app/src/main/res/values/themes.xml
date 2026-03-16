@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MAScannerPro" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/accent_gold</item>
+        <item name="colorPrimaryVariant">@color/accent_gold_dark</item>
+        <item name="colorOnPrimary">@color/bg_primary</item>
+        <item name="colorSurface">@color/bg_secondary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+        <item name="android:statusBarColor">@color/bg_primary</item>
+        <item name="android:navigationBarColor">@color/bg_secondary</item>
+    </style>
+
+    <style name="TimeframeButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="strokeColor">@color/border_color</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:background">@color/bg_card</item>
+    </style>
+
+    <style name="TimeframeButtonSelected" parent="TimeframeButton">
+        <item name="android:textColor">@color/accent_gold</item>
+        <item name="strokeColor">@color/accent_gold</item>
+    </style>
+
+    <style name="MaTypeButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="strokeColor">@color/border_color</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:background">@color/bg_card</item>
+    </style>
+
+    <style name="MaTypeButtonSelected" parent="MaTypeButton">
+        <item name="android:textColor">@color/accent_gold</item>
+        <item name="strokeColor">@color/accent_gold</item>
+    </style>
+</resources>
