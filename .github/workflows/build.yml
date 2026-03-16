@@ -12,16 +12,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Dogrudan Derle
-        run: |
-          # Hata veren tum wrapper dosyalarini silelim
-          rm -f gradlew gradlew.bat
-          rm -rf gradle/wrapper
-          
-          # GitHub'da yuklu olan ana gradle komutuyla derleyelim
-          gradle assembleDebug
+      - name: Gradle Ayarlarini Kur
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.2.2
 
-      - name: APK'yi Yukle
+      - name: APK Derle
+        run: gradle assembleDebug
+
+      - name: APK Yukle
         uses: actions/upload-artifact@v4
         with:
           name: FuturesEdge-APK
