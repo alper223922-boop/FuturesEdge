@@ -1,21 +1,29 @@
-name: APK Basici
+name: APK Kesin Cozum
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Java 17 Kur
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: APK Derle
+
+      - name: Dosyalari Tamir Et ve Derle
         run: |
+          # Bozuk dosyalari temizle ve GitHub'in kendi Gradle'ini kur
+          rm -f gradlew gradlew.bat
+          gradle wrapper --gradle-version 8.2.2
+          
+          # Calistirma izni ver ve APK'yi bas
           chmod +x gradlew
           ./gradlew assembleDebug
-      - name: APK Yukle
+
+      - name: APK'yi Yukle
         uses: actions/upload-artifact@v4
         with:
-          name: FuturesEdge-Uygulama
+          name: FuturesEdge-APK
           path: app/build/outputs/apk/debug/*.apk
