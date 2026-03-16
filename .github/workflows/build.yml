@@ -1,0 +1,21 @@
+name: APK Basici
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Java 17 Kur
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: APK Derle
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+      - name: APK Yukle
+        uses: actions/upload-artifact@v4
+        with:
+          name: FuturesEdge-Uygulama
+          path: app/build/outputs/apk/debug/*.apk
