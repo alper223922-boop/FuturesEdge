@@ -12,13 +12,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Gradle Ayarlarini Kur
+      - name: Gradle Kur ve Derle
         uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: 8.2.2
+        # Sürümü boş bırakıyoruz, GitHub kendisi en uygununu seçecek
 
       - name: APK Derle
-        run: gradle assembleDebug
+        run: |
+          # Eğer proje içinde eski gradle dosyaları kalmışsa onları silelim ki çakışmasın
+          rm -f gradlew gradlew.bat
+          gradle assembleDebug
 
       - name: APK Yukle
         uses: actions/upload-artifact@v4
