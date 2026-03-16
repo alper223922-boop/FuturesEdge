@@ -1,6 +1,7 @@
 package com.futuresedge.ui;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,8 +36,21 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.VH> {
     public void onBindViewHolder(@NonNull VH h, int pos) {
         MarketTicker t = items.get(pos);
         h.tvPair.setText(t.getDisplayPair());
-        h.tvVolume.setText("Vol: " + t.getFormattedVolume() + " USDT");
         h.tvPrice.setText(t.getFormattedPrice());
+
+        // RSI Değerini Al ve Renklendir
+        double rsi = t.rsi; // MarketTicker modelinde rsi değişkeni olduğu varsayılıyor
+        String rsiStr = String.format("RSI: %.1f", rsi);
+        h.tvVolume.setText("Vol: " + t.getFormattedVolume() + " | " + rsiStr);
+
+        // RSI Neon Renk Mantığı
+        if (rsi <= 30) {
+            h.tvVolume.setTextColor(Color.parseColor("#00FF00")); // Neon Yeşil (Alım Bölgesi)
+        } else if (rsi >= 70) {
+            h.tvVolume.setTextColor(Color.parseColor("#FF1493")); // Neon Pembe (Satış Bölgesi)
+        } else {
+            h.tvVolume.setTextColor(Color.GRAY); // Normal Durum
+        }
 
         String chgStr = String.format("%+.2f%%", t.priceChangePercent);
         h.tvChange.setText(chgStr);
