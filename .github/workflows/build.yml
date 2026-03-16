@@ -12,14 +12,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Dosyalari Tamir Et ve Derle
+      - name: Gradle Sifirla ve Derle
         run: |
-          # Bozuk dosyalari temizle ve GitHub'in kendi Gradle'ini kur
+          # Bozuk dosyalari temizle
           rm -f gradlew gradlew.bat
-          gradle wrapper --gradle-version 8.2.2
+          rm -rf gradle/wrapper
           
-          # Calistirma izni ver ve APK'yi bas
+          # Gradle 8.2.2'yi zorla kur (Link vererek)
+          gradle wrapper --gradle-distribution-url https://services.gradle.org/distributions/gradle-8.2.2-bin.zip
+          
+          # Calistirma izni ver
           chmod +x gradlew
+          
+          # APK'yi basalim
           ./gradlew assembleDebug
 
       - name: APK'yi Yukle
